@@ -1,0 +1,342 @@
+{% include 'mainapp/header.html' %}
+{% load static %}
+{% load getdays %}
+
+    <!-- ***** Header Area End ***** -->
+
+{% if tab == 1 %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+    // Handler for .ready() called.
+    $('html, body').animate({
+        scrollTop: $('#about').offset().top
+    }, 'slow');
+});
+</script>
+{% endif %}
+
+
+
+    <!-- ***** Welcome Area Start ***** -->
+    <div class="welcome-area" id="welcome">
+        <!-- ***** Header Text Start ***** -->
+        <div class="header-text">
+            <div class="container">
+                <div class="row">
+                
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                
+                        <h1>Everything about <em>EXAMS</em></h1>
+                        <p> From private to government, From rules & regulations to registration link, Everything at one place.
+                           Subscribe and stay updated! </p> 
+                           <form class="form" method="POST">
+                            {% csrf_token %}
+                            
+                            <input class="search-bar" placeholder="Search something....." name="universal_search"></input> <br>
+                        <button class="main-button-slider" type="submit" name="search_form" style="border-color: blanchedalmond;">Search Exams</button>
+                           </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ***** Header Text End ***** -->
+    </div>
+    <!-- ***** Welcome Area End ***** -->
+
+    
+
+    <div class="row">
+      <div class="col-12 pageheading">
+          <div class="page-title">Upcoming Examinations</div>
+          <div class="subh">Find complete information regarding all the upcoming!</div>
+      </div>
+  </div>
+
+    <!-- ***** Features Big Item Start ***** -->
+    <section class="section" id="about">
+      <div class="container">
+  
+              <div class="row">
+              {% for obj in exam_obj %}
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                  data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                  <div class="features-item card card-5" style="margin-bottom: 100px;">
+                    <span class="badge badge-info"> {{ obj|get_days }} Days to go ! </span>
+                      <div class="features-icon">
+                      
+                          <img src="assets/images/features-icon-1.png" alt="">
+                          <h5>{{obj.name}}</h5>
+                          <a href="{% url 'view_institute' obj.id %}"><p style="font-weight: 600;"> Conducted by : {{ obj.institute.name }} </p> </a>
+                          <p> <span class="badge badge-warning">{{ obj.degree }}</span> <span class="badge badge-warning"> {% if obj.is_govt == True %} Government {% else %} Private {% endif %}<span>
+                          <p><i class="fa fa-calendar" style="padding-right: 5px;"> </i>{{obj.date}}  {{obj.time}} </p>
+                          <p><i class="fa fa-clock-o" style="padding-right: 5px;"> </i>Duration : {{obj.duration}} hours</p>
+                          <p><i class="fa fa-pencil" style="padding-right: 5px;"> </i>Medium : {{obj.medium}}</p>
+                          <p><span class="badge badge-danger"> Last Day to Register :{{obj.last_day_register}} </span></p>
+
+                          <a href="{% url 'view_exam' obj.id %}" class="main-button" style="margin-bottom: 80px;">
+                              Read More
+                          </a>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div> 
+  </section>
+
+  <div class="row">
+    <div class="col-12 pageheading">
+        <div class="page-title">Latest News about Exams</div>
+        <div class="subh">Little knowledge goes a long way!</div>
+    </div>
+</div>
+
+  <section class="news container">
+
+    <div class="row" style="text-align: center;">
+    {% for row in df.values.tolist %}
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                  data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+
+                  <div class="card card-5" style="width: 18rem; height: 350px;">
+                    <img class="card-img-top" src="{{ row.5 }}" alt="Card image cap">
+                    <div class="card-body">
+                      <h6 class="card-title">{{row.2 }}</h6>
+                      <a href="{{ row.4 }}" class="btn btn-primary">Read More</a>
+                    </div>
+                  </div>
+
+    </div>
+      {% endfor %}
+    </div>
+  </section>
+
+
+    <!-- ***** Testimonials Starts ***** -->
+    </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>  </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Testimonials Ends ***** -->
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Coffee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+</body>
+</html>

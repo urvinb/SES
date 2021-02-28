@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hi,
+Details of one of your subscribed exams has been changed
+Exam Name: {{obj.name}}
+Exam Date: {{obj.date}}
+
+Click here to view details, 
+http://127.0.0.1:8000/view_exam/{{obj.id}}
+{% endautoescape %}

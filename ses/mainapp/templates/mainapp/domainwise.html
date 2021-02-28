@@ -1,0 +1,160 @@
+{% include 'mainapp/header.html' %}
+{% load static %}
+{% load getdays %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainapp/assets/css/domain.css' %}">
+    <!-- ***** Header Area End ***** -->
+
+     <!-- ***** Features Big Item Start ***** -->
+     {% include 'users/messages.html' %}
+     <form method="POST">
+        {% csrf_token %}
+        <label>Choose filters to search</label>
+    <select class="col-md-3 col-8 select2 form-control custom-select" style="width: 100%; height:36px;" name="domain" id="domain" >
+        <option value="" >Select the domain</option>
+            <option value="Engineering" id="1">Engineering</option>
+            <option value="MBA" id="2">MBA</option>
+            <option value="Medical" id="3">Medical</option>
+            <option value="LAW" id="4">LAW</option>      
+    </select>
+    <input type="text" name ="institute" id ="institute" placeholder="Enter institute" class="col-md-3 col-8 select2 form-control custom-select"> </input>
+
+            <!-- End Multiple Dropdown -->
+
+          <select class="col-md-3 col-8 select2 form-control custom-select" id="inputState" name="inputState">
+                              <option value="SelectState">Select State</option>
+                              <option value="Andra Pradesh">Andra Pradesh</option>
+                              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                              <option value="Assam">Assam</option>
+                              <option value="Bihar">Bihar</option>
+                              <option value="Chhattisgarh">Chhattisgarh</option>
+                              <option value="Goa">Goa</option>
+                              <option value="Gujarat">Gujarat</option>
+                              <option value="Haryana">Haryana</option>
+                              <option value="Himachal Pradesh">Himachal Pradesh</option>
+                              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                              <option value="Jharkhand">Jharkhand</option>
+                              <option value="Karnataka">Karnataka</option>
+                              <option value="Kerala">Kerala</option>
+                              <option value="Madya Pradesh">Madya Pradesh</option>
+                              <option value="Maharashtra">Maharashtra</option>
+                              <option value="Manipur">Manipur</option>
+                              <option value="Meghalaya">Meghalaya</option>
+                              <option value="Mizoram">Mizoram</option>
+                              <option value="Nagaland">Nagaland</option>
+                              <option value="Orissa">Orissa</option>
+                              <option value="Punjab">Punjab</option>
+                              <option value="Rajasthan">Rajasthan</option>
+                              <option value="Sikkim">Sikkim</option>
+                              <option value="Tamil Nadu">Tamil Nadu</option>
+                              <option value="Telangana">Telangana</option>
+                              <option value="Tripura">Tripura</option>
+                              <option value="Uttaranchal">Uttaranchal</option>
+                              <option value="Uttar Pradesh">Uttar Pradesh</option>
+                              <option value="West Bengal">West Bengal</option>
+                              <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                              <option value="Chandigarh">Chandigarh</option>
+                              <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                              <option value="Daman and Diu">Daman and Diu</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Lakshadeep">Lakshadeep</option>
+                              <option value="Pondicherry">Pondicherry</option>
+                            </select>
+        <button type="submit" class="btn btn-primary" name="filter">Submit </button>
+      </form>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+<div class="row">
+        <div class="col-12 pageheading">
+            <div class="page-title">Here are some {{title}} Exams</div>
+            <div class="subh">Find complete information regarding all the upcoming exams!</div>
+        </div>
+    </div>
+
+    <section class="section" id="about">
+        <div class="container">
+    
+                <div class="row">
+                    {% for obj in exam_obj %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <div class="features-item card card-5" style="margin-bottom: 100px;">
+                            {% if  obj|get_days  > 0 %}
+                          <span class="badge badge-info"> {{ obj|get_days }} Days to go ! </span>
+                          {% else %}
+                          <span class="badge badge-info"> Closed </span>
+                          {% endif %}
+                            <div class="features-icon">
+                            
+                                <img src="assets/images/features-icon-1.png" alt="">
+                                <h5>{{obj.name}}</h5>
+                                <p style="font-weight: 600;"> Conducted by : {{ obj.institute.name }} </p>
+                                <p> <span class="badge badge-warning">{{ obj.degree }}</span> <span class="badge badge-warning"> {% if obj.is_govt == True %} Government {% else %} Private {% endif %}<span>
+                                <p><i class="fa fa-calendar" style="padding-right: 5px;"> </i>{{obj.date}}  {{obj.time}} </p>
+                                <p><i class="fa fa-clock-o" style="padding-right: 5px;"> </i>Duration : {{obj.duration}} hours</p>
+                                <p><i class="fa fa-pencil" style="padding-right: 5px;"> </i>Medium : {{obj.medium}}</p>
+                                <p><span class="badge badge-danger"> Last Day to Register :{{obj.last_day_register}} </span></p>
+      
+                                <a href="{% url 'view_exam' obj.id %}" class="main-button" style="margin-bottom: 80px;">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    
+
+    <div class="left-image-decor"></div>
+
+    <!-- ***** Features Big Item End ***** -->
+
+    <div class="right-image-decor"></div>
+
+    
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Coffee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% include 'mainapp/header.html' %}
+{% load static %}
+{% load getdays %}
+
+
+    <!-- ***** Header Area End ***** -->
+
+     <!-- ***** Features Big Item Start ***** -->
+
+     <div class="row">
+        <div class="col-12 pageheading">
+            <div class="page-title">Your Subscribed Exams</div>
+            <div class="subh">Find complete information regarding all the upcoming exams!</div>
+        </div>
+    </div>
+
+     <section class="section" id="about">
+        <div class="container">
+    
+                <div class="row">
+                    {% for obj in exam_obj %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <div class="features-item card card-5" style="margin-bottom: 100px;">
+                            {% if  obj|get_days  > 0 %}
+                          <span class="badge badge-info"> {{ obj|get_days }} Days to go ! </span>
+                          {% else %}
+                          <span class="badge badge-info"> Closed </span>
+                          {% endif %}
+                            <div class="features-icon">
+                            
+                                <img src="assets/images/features-icon-1.png" alt="">
+                                <h5>{{obj.name}}</h5>
+                                <p style="font-weight: 600;"> Conducted by : {{ obj.institute.name }} </p>
+                                <p> <span class="badge badge-warning">{{ obj.degree }}</span> <span class="badge badge-warning"> {% if obj.is_govt == True %} Government {% else %} Private {% endif %}<span>
+                                <p><i class="fa fa-calendar" style="padding-right: 5px;"> </i>{{obj.date}}  {{obj.time}} </p>
+                                <p><i class="fa fa-clock-o" style="padding-right: 5px;"> </i>Duration : {{obj.duration}} hours</p>
+                                <p><i class="fa fa-pencil" style="padding-right: 5px;"> </i>Medium : {{obj.medium}}</p>
+                                <p><span class="badge badge-danger"> Last Day to Register :{{obj.last_day_register}} </span></p>
+      
+                                <a href="{% url 'view_exam' obj.id %}" class="main-button" style="margin-bottom: 80px;">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </section>
+
+   
+
+    
+
+
+    <!-- ***** Features Big Item End ***** -->
+
+
+    
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Cofee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+</body>
+</html>

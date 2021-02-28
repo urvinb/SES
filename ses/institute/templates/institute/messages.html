@@ -1,0 +1,64 @@
+<style>
+  .alert {
+      width: auto;
+      margin: 20px 40px;
+      height: auto;
+  }
+
+  .tick {
+      font-size: 1rem;
+      padding: 5px;
+  }
+
+  .alert {
+      text-align: left;
+      font-size: 1.1rem;
+  }
+
+  .green {
+      font-size: 1.4rem;
+      text-decoration: none;
+      padding: 5px;
+      color: rgb(1, 87, 1);
+  }
+
+  .green:hover {
+      text-decoration: none;
+      color: rgb(12, 190, 12);
+  }
+</style>
+
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-{{ message.tags }}" id="messagebox">
+
+  {% if message.tags == 'success' %}
+  <i class="far fa-check-circle tick"></i>
+  {% endif %}
+  {{ message }}
+  <a href="#!" onmouseenter="closebox()" id="closeicon"><i class="fas fa-window-close close green"></i></a>
+
+</div>
+{% endfor %}
+{% endif %}
+
+{% if e %}
+<div class="alert alert-danger" id="messagebox">
+
+  <i class=" fas fa-exclamation-triangle error"></i>
+  {{ e }}
+
+
+</div>
+{% endif %}
+
+
+<script>
+  function closebox(){
+      $("#closeicon").click(function(){
+      $("#messagebox").fadeOut();
+    });
+    }
+</script>

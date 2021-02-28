@@ -1,0 +1,120 @@
+{% load static %}
+{% load define_action %}
+
+{% if 'user_email' in request.session %}
+{% include 'institute/header.html' %}
+{% else %}
+{% include 'mainapp/header.html' %}
+{% endif %}
+
+    <!-- ***** Header Area End ***** -->
+    <div style="margin-top: 90px;">
+
+        <!-- ***** Features Big Item Start ***** -->
+        <section class="section" id="promotion">
+            <div class="container">
+                <div class="row">
+                    <div class="left-image col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                        data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                        <img src="{% static 'mainapp/assets/images/college.svg' %}" class="rounded img-fluid d-block mx-auto" alt="App">
+                    </div>
+                    <div class="right-text offset-lg-1 col-lg-6 col-md-12 col-sm-12 mobile-bottom-fix">
+                        <ul>
+                            <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
+                                <div class="text">
+                                    <h3 style="font-weight: 700;">{{obj.name}}</h3>
+                                    <p style="font-weight: 500;"> <i class="fa fa-map-marker" style="padding-right: 5px;" > </i> {{ obj.address }} </p>
+                                    <p> <span class="badge badge-warning">{{ obj.domain }}</span>
+
+                                   
+                                </p> 
+                                </div>
+                            </li> <br>  <br>
+
+                            <p style="font-weight: 500;"> <i class="fa fa-book" style="padding-right: 5px;" > </i> Exams conducted by {{ obj.name }} </p>
+
+                           
+                           
+                            <div class="list-group">
+                                {% for obj in exam_obj %}
+                                <a href="{% url 'view_exam' obj.id %}" class="list-group-item list-group-item-action">{{ obj.name }} </a>
+                                {% endfor %}
+                              </div>
+                            
+
+                         <br> <br>
+                            {% if 'user_email' in request.session %}
+                            <form method="POST">
+                                {% csrf_token %}
+                                <a href="{% url 'update_exam' obj.id %}" class="main-button pr" style="margin-right: 10px;">
+                                    Update
+                                </a> 
+                                <a href="{% url 'delete_exam' obj.id %}" class="main-button pr" style="margin-right: 10px;">
+                                    Delete
+                                </a> 
+                            </form>
+                            {% else %}
+                            <form method="POST">
+                                {% csrf_token %}
+         
+                                {% if obj|get_subscribed:request.user == True %}
+                                <button class="main-button register" name="unsubscribe"> <i class="fa fa-check-circle" style="padding-right: 5px;" > </i>
+                                    <span class="info">Subscribed<span class="tooltip" style="margin-top: 20px;">Click to Unsubscribe</span></span>
+                                </button> 
+                                <link href="https://firebasestorage.googleapis.com/v0/b/tooltipcss.appspot.com/o/tooltip.css?alt=media&token=0ce443aa-0970-4167-8d7d-7abdcd2edf71" rel="stylesheet">
+
+                                {% else %}
+                                <button class="main-button register" name="subscribe">
+                                    Subscribe
+                                </button>
+                                {% endif %}
+                            </form>
+                          {% endif %}
+                         
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ***** Features Big Item End ***** -->
+
+
+    <!-- ***** Features Big Item End ***** -->
+
+    </div>
+     <!-- ***** Footer Start ***** -->
+     <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Coffee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+</body>
+</html>

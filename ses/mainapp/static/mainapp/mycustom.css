@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'azo_sansbold';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff2') format('woff2'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.woff') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/260783/rui_abreu_-_azosans-bold-webfont.svg#azo_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.rules{
+    color: black;
+    background-color: blue;
+}
+
+.card-5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+  .card {
+    background: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    height: 300px;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+    border-radius: 15px;
+  }
+
+  .pageheading{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    color: #2e2e2e;
+    font-weight: 800;
+  }
+  .subh{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 2px;
+    color: #d15f13;
+  }
+
+ 
+.badge-light{
+    font-size:16px;
+  }
+  #promotion > div > div.jumbotron > p{
+  padding:5px;
+}
+.search-button{
+  background-color: #f4813f;
+  color:white;
+  outline:none;
+}
+.edit-button{
+  background-color: rgb(25, 155, 90);
+  color:white;
+  position:relative;
+  top:-5%;
+  left:50%;
+  padding:10px;
+  border-radius: 70px;
+  box-shadow:2px 2px 5px rgb(127, 190, 159);
+  
+}
+.edit-button:hover{
+  background-color:white;
+  color:rgb(25, 155, 90);
+ 
+}
+
+.video-item {
+  position: relative;
+  width: 25rem;
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+iframe
+{
+  width:100%; 
+  height:315px; 
+}
+
+.section-heading {
+  position: relative;
+  color: black
+  margin-top: 100px;
+  font-size: 34px;
+  font-weight: 700;  
+  text-align:center;
+  margin-bottom:30px;
+}

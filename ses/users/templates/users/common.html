@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SES </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'users/images/icons/favicon.ico' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/main.css' %}">
+    <script src="https://kit.fontawesome.com/0559096e5d.js" crossorigin="anonymous"></script>
+
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('{% static 'users/images/music2.jpg' %}');">
+			<div class="wrap-login100 p-t-100 p-b-30" style="text-align: center;">
+					<!-- Success and error messages will be displayed here-->
+                    {% include 'users/messages.html' %}
+				<!--	<div class="login100-form-avatar">
+						<img src="{% static 'users/images/rabbit.jpg' %}" alt="AVATAR">
+					</div> -->
+
+					<span class="login100-form-title p-t-20 p-b-45">
+						Welcome To Smart Education System
+					</span>
+
+					<a href="{% url 'signin' %}" ><div class="card w-75 new" style="margin: 50px;">
+                        <div class="card-body">
+                          <h5 class="card-title"><i class="fas fa-sign-in-alt"></i>Continue as  a Student</h5>
+                        </div>
+                      </div> </a>
+
+                      <a href="{% url 'login' %}" >
+                      <div class="card w-75 new" style="margin: 50px;">
+                        <div class="card-body">
+                          <h5 class="card-title"><i class="fas fa-sign-in-alt"></i>Continue as Institute</h5>
+                        </div>
+                      </div> </a>
+
+				
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'users/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'users/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/js/main.js' %}"></script>
+
+</body>
+</html>

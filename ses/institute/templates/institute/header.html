@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="TemplateMo">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>{{ title }}</title>
+<!--
+
+Lava Landing Page
+
+https://templatemo.com/tm-540-lava-landing-page
+
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/assets/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'mainapp/assets/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/assets/css/templatemo-lava.css' %}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/assets/css/owl-carousel.css' %}">
+
+    <link rel="stylesheet" href="{% static 'mainapp/mycustom.css' %}">
+
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+      <!-- ***** Header Area Start ***** -->
+      <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{% url 'index_institute'%}" class="logo">
+                            SES
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="{% url 'index_institute'%}">Home</a></li>
+                            <li ><a href="{% url 'examform' %}" >Add Exam</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'logout' %}">Log out</a></li>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="margin-top: 100px;">
+        {% include 'users/messages.html' %}
+    </div>
+    

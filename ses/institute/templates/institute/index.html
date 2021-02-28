@@ -1,0 +1,107 @@
+{% include 'institute/header.html' %}
+{% load static %}
+
+    <!-- ***** Header Area End ***** -->
+    <div style="margin-top: 90px;">
+        <!-- ***** Features Big Item Start ***** -->
+        <section class="section" id="promotion">
+            <div class="container">
+                <div class="jumbotron">
+                    <h3>{{ obj.name }}</h3> 
+                    <p> <i class="fa fa-map-marker"></i> Address : <span class="badge badge-light">{{ obj.address }}</span> </p>
+                    <p> <i class="fa fa-envelope"></i> Email: <span class="badge badge-light"> {{ obj.email }}</span> </p>
+                    <p> <i class="fa fa-phone"></i> Contact: <span class="badge badge-light">{{ obj.contact}}</span>  </p>
+                    <p> <i class="fa fa-globe"></i> Region: <span class="badge badge-light">{{ obj.region}}</span> </p> 
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <div class="form-outline">
+                          
+                          
+                        </div>
+                        <form class="form" method="POST">
+                            {% csrf_token %}
+                            
+                            <input class="search-bar" placeholder="Search something....." name="universal_search"></input> <br>
+                        <button class="main-button-slider" type="submit" name="search_form" style="border-color: blanchedalmond;">Search Exams</button>
+                           </form>
+                      </div>
+                </div>
+            </div>
+        </section>
+        <!-- ***** Features Big Item End ***** -->
+
+
+    <!-- ***** Features Big Item End ***** -->
+    <section class="section" id="about">
+        <div class="container">
+    
+                <div class="row">
+                {% for e in exam_obj %}
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                    data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                    <div class="features-item card card-5">
+                        
+                        <a href="{% url 'update_exam' e.id %}" class="edit-button" title="Edit">
+                           <i class="fa fa-edit"></i>
+                        </a>
+                        
+                        <div class="features-icon">
+                        
+                            <h5>{{e.name}}</h5>
+                            
+                            <p><i class="fa fa-calendar" style="padding-right: 5px;"> </i>{{e.date}} {{e.time}}</p>
+                            <p><i class="fa fa-clock-o" style="padding-right: 5px;"> </i>Duration : {{e.duration}} hours</p>
+                            <p><i class="fa fa-pencil" style="padding-right: 5px;"> </i>Medium : {{e.medium}}</p>
+                            <p> Suitable for : {{e.degree}}</p> <br>
+                            <p><span class="badge badge-danger"> Last Day to Register :{{e.last_day_register}} </span></p>
+
+                            <a href="{% url 'view_exam' e.id %}" class="main-button">
+                                Read More
+                            </a>
+                                                 
+                        </div>
+                    </div>
+                </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+    
+
+
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Coffee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ <!-- jQuery -->
+ <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+ <!-- Bootstrap -->
+ <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+ <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+s
+ <!-- Plugins -->
+ <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+ <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+ <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+ <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+ <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+ <!-- Global Init -->
+ <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>

@@ -1,0 +1,144 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SES | Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'users/images/icons/favicon.ico' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'users/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'users/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+        <div class="container-login100" style="background-image: url('{% static 'users/images/music2.jpg' %}');">
+			<div class="wrap-login100 p-t-20 p-b-20">
+				<form class="login100-form validate-form" method="POST">
+                    {% csrf_token %}
+                    <!-- Success and error messages will be displayed here-->
+                    {% include 'users/messages.html' %}
+
+					<span class="login100-form-title p-t-20 p-b-45">
+						Smart Education System
+                    </span>
+
+                        <div class="wrap-input100 validate-input m-b-10">
+                            {{inst.form.name}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10" >
+                            {{inst.form.email}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10" data-validate = "Last name is required">
+                            {{inst.form.address}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-address-card"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10">
+                            {{inst.form.contact}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-phone"></i>
+                            </span>
+                        </div>
+    
+                        <div class="wrap-input100 validate-input m-b-10">
+                            {{inst.form.domain}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-book"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10">
+                            {{inst.form.region}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-globe"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10" >
+                            {{inst.form.password}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-10" >
+                            {{inst.form.password2}}
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        
+                        <div class="container-login100-form-btn p-t-10"> 
+                            <input class="login100-form-btn" type="submit" value='Save' />
+                        </div>
+
+
+					<div class="text-center w-full">
+						<a class="txt1" href="{% url 'login' %}">
+							Already have an account? Log in here.
+							<i class="fa fa-long-arrow-right"></i>						
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="{% static 'users/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'users/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'users/js/main.js' %}"></script>
+
+</body>
+</html>
+
+<!-- <h1>Register</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ inst.errors }}
+    {{ inst.form.as_p }}
+    <input type="submit" value='Save' />
+</form> -->

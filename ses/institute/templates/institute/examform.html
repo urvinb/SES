@@ -1,0 +1,161 @@
+{% include 'institute/header.html' %}
+{% load static %}
+
+
+    <!-- ***** Form Start ***** -->
+        <div class="container">
+            <p>Submit Exam Details</p>
+                <div class="row">
+                    <!-- ***** Exam Form Start ***** -->
+                    <div class="col-lg-8 offset-lg-2 col-md-12 col-sm-12">
+                        <div class="contact-form">
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <label>Exam Name</label>
+                                    {{exam.form.name}}
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <label>Exam date:</label>
+                                            {{exam.form.date}}
+                                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <label>Exam time:</label>
+                                            {{exam.form.time}}
+                                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <label>Exam Duration:</label>
+                                            {{exam.form.duration}}
+                                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="input-group">
+                                            <label>Last Registration date:</label>
+                                            {{exam.form.last_day_register}}
+                                            
+                                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label> Registration Link: </label>
+                                        <div class="input-group">
+                                            {{exam.form.reg_link}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Upload Marking Scheme PDF:</label>
+                                        <div class="input-group">
+                                            {{exam.form.marking_scheme}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Upload Rules PDF:</label>
+                                        <div class="input-group">
+                                            {{exam.form.rules_pdf}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Upload Syllabus PDF:</label>
+                                        <div class="input-group">
+                                            {{exam.form.syllabus_pdf}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Additional Details </label>
+                                        <div class="input-group">
+                                            {{exam.form.extra_details}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Degree :</label>
+                                        <div class="input-group">
+                                            {{exam.form.degree}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-space">
+                                    <div class="col-12">
+                                        <label>Exam mode: </label>
+                                        <div class="input-group rs-select2 js-select-simple select--no-search ">
+                                            {{exam.form.medium}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="container-login100-form-btn p-t-10"> 
+                                    <!-- <input class="login100-form-btn--green" type="submit" value='Submit' /> -->
+                                    <button class="btn btn--radius btn--green" type="submit">Submit</button>
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                    <!-- ***** Contact Form End ***** -->        
+        </div>
+    </div>
+    <!-- ***** Footer Start ***** -->
+    <footer id="contact-us">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <p>Copyright &copy; Coffee n Code
+
+                        | 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+    
+
+
+    <!-- jQuery -->
+    <script src="{% static 'mainapp/assets/js/jquery-2.1.0.min.js' %}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'mainapp/assets/js/popper.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugins -->
+    <script src="{% static 'mainapp/assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/scrollreveal.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'mainapp/assets/js/imgfix.min.js' %}"></script>
+
+    <!-- Global Init -->
+    <script src="{% static 'mainapp/assets/js/custom.js' %}"></script>
+
+</body>
+</html>
